@@ -5,79 +5,95 @@
 <title>Three Frame Layout</title>
 
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
-    /* Overall page grid */
-    .page {
-        display: grid;
-        grid-template-rows: 10vh 1fr; /* Top frame ~10% */
-        height: 100vh;
-    }
+/* Main layout */
+.page {
+    display: grid;
+    grid-template-rows: 10vh 1fr; /* Top frame = ~10% */
+    height: 100vh;
+}
 
-    /* ---------------- TOP FRAME ---------------- */
-    .top-frame {
-        position: relative;
-        background-image: url("top.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+/* ---------- TOP FRAME ---------- */
+.top-frame {
+    position: relative;
+    background: url("top.png") center / cover no-repeat;
+}
 
-    /* White strip at bottom of top frame */
-    .top-frame::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 30%;
-        width: 100%;
-        background: white;
-    }
+/* White area at bottom of top frame */
+.top-frame::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    width: 100%;
+    background: white;
+}
 
-    /* Logo positioning */
-    .logo {
-        position: absolute;
-        left: 20px;
-        bottom: -10px; /* pushes logo into white area */
-        height: 120%;  /* slightly larger than top frame */
-        z-index: 10;
-    }
+/* Logo overlapping into white area */
+.logo {
+    position: absolute;
+    left: 20px;
+    bottom: -15px;
+    height: 120%;
+    z-index: 10;
+}
 
-    /* ---------------- BOTTOM FRAMES ---------------- */
-    .content {
-        display: grid;
-        grid-template-columns: 25% 75%;
-        height: 100%;
-    }
+/* ---------- BOTTOM FRAMES ---------- */
+.content {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    height: 100%;
+}
 
-    .left-frame {
-        background: white;
-        padding: 20px;
-        box-sizing: border-box;
-    }
+.left-frame,
+.right-frame {
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-    .right-frame {
-        background: white;
-        padding: 20px;
-        box-sizing: border-box;
-        position: relative;
-    }
-
-    /* MID2 image centered at top of right frame */
-    .mid-image {
-        display: block;
-        margin: 0 auto 20px auto;
-        max-width: 100%;
-        height: auto;
-    }
+/* MID2 centered at top of right frame */
+.mid2 {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+    height: auto;
+}
 </style>
 </head>
 
 <body>
 
 <div class="page">
+
+    <!-- TOP FRAME -->
+    <div class="top-frame">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <!-- BOTTOM FRAMES -->
+    <div class="content">
+
+        <!-- LEFT FRAME -->
+        <div class="left-frame">
+            <!-- Add left-frame text here -->
+        </div>
+
+        <!-- RIGHT FRAME -->
+        <div class="right-frame">
+            <img src="MID2.png" alt="MID2 Image" class="mid2">
+            <!-- Add right-frame text here -->
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
