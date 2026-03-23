@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Frame Layout</title>
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Overall page grid */
+    .page {
+        display: grid;
+        grid-template-rows: 10vh 1fr; /* Top frame ~10% */
+        height: 100vh;
+    }
+
+    /* ---------------- TOP FRAME ---------------- */
+    .top-frame {
+        position: relative;
+        background-image: url("top.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* White strip at bottom of top frame */
+    .top-frame::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 30%;
+        width: 100%;
+        background: white;
+    }
+
+    /* Logo positioning */
+    .logo {
+        position: absolute;
+        left: 20px;
+        bottom: -10px; /* pushes logo into white area */
+        height: 120%;  /* slightly larger than top frame */
+        z-index: 10;
+    }
+
+    /* ---------------- BOTTOM FRAMES ---------------- */
+    .content {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        height: 100%;
+    }
+
+    .left-frame {
+        background: white;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .right-frame {
+        background: white;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* MID2 image centered at top of right frame */
+    .mid-image {
+        display: block;
+        margin: 0 auto 20px auto;
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="page">
